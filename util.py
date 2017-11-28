@@ -28,17 +28,24 @@ def is_available_domain(domain_name, prefix='', suffix='ai', domain_type='com'):
 
 
 def set_ai_suffix_domain_section(last_line_num):
-    cf = configparser.ConfigParser()
-    cf.read(CONFIG_PATH)
-    cf.set('ai_suffix_domain', 'last_line_num', str(last_line_num))
-    cf.write(open(CONFIG_PATH, 'w'))
+    set_last_line_num('ai_suffix_domain', str(last_line_num))
 
 
 def get_ai_suffix_domain_last_line_num():
+    return get_last_line_num('ai_suffix_domain')
+
+
+def set_last_line_num(section, value):
     cf = configparser.ConfigParser()
     cf.read(CONFIG_PATH)
-    return cf.getint('ai_suffix_domain', 'last_line_num')
+    cf.set(section, 'last_line_num', str(value))
+    cf.write(open(CONFIG_PATH, 'w'))
 
+
+def get_last_line_num(section):
+    cf = configparser.ConfigParser()
+    cf.read(CONFIG_PATH)
+    return cf.getint(section, 'last_line_num')
 
 if __name__ == '__main__':
     set_ai_suffix_domain_section(1000)
