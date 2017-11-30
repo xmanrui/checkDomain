@@ -15,3 +15,5 @@ soapai.com
 rosyai.com
 roleai.com
 julyai.com
+juicyai.com
+floatai.com
