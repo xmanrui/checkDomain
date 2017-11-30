@@ -1,8 +1,5 @@
-
 import time
-import random
-from util import is_available_domain, get_ai_suffix_domain_last_line_num, \
-    set_ai_suffix_domain_section, set_last_line_num, get_last_line_num
+from util import is_available_domain, set_last_line_num, get_last_line_num
 
 words_path = './niujing_eng_words.txt'
 mini_words_path = './mini_eng_dict.txt'
@@ -66,7 +63,7 @@ def check_ai_suffix_domain(eng_dict_path, valid_save_path, invalid_save_path, se
     suffix = 'ai'
     domain_type = 'com'
     check_ai_domain(eng_dict_path, valid_save_path, invalid_save_path, section, encoding, prefix, suffix, domain_type)
-    
+
 
 def check_ai_prefix_domain(eng_dict_path, valid_save_path, invalid_save_path, section, encoding='utf-8'):
     prefix = 'ai'
