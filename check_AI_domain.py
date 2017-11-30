@@ -38,13 +38,13 @@ def check_ai_domain(eng_dict_path, valid_save_path, invalid_save_path,
                 try:
                     if is_available_domain(domain_name, prefix, suffix, domain_type):
                         with open(valid_save_path, 'a', encoding=encoding) as out_fh:
-                            print(domain_name + prefix + suffix + '.' + domain_type)
-                            out_fh.writelines(domain_name + prefix + suffix + '.' + domain_type + '\n')
+                            print(prefix + domain_name + suffix + '.' + domain_type)
+                            out_fh.writelines(prefix + domain_name + suffix + '.' + domain_type + '\n')
                             out_fh.flush()
                     else:
                         with open(invalid_save_path, 'a', encoding=encoding) as out_fh:
-                            print('invalid: ', domain_name + prefix + suffix + '.' + domain_type)
-                            out_fh.writelines(domain_name + prefix + suffix + '.' + domain_type + '\n')
+                            print('invalid: ', prefix + domain_name + suffix + '.' + domain_type)
+                            out_fh.writelines(prefix + domain_name + suffix + '.' + domain_type + '\n')
                             out_fh.flush()
                     # time.sleep(random.randint(1, 5))  # 延时
                     break
@@ -73,5 +73,5 @@ def check_ai_prefix_domain(eng_dict_path, valid_save_path, invalid_save_path, se
 
 
 if __name__ == '__main__':
-    check_ai_suffix_domain(mini_words_path,
-                           mini_available_ai_domain, mini_invalid_ai_domain, 'ai_suffix_domain_from_mini_dict', 'gbk')
+    check_ai_prefix_domain(mini_words_path,
+                           mini_available_ai_domain, mini_invalid_ai_domain, 'ai_prefix_domain_from_mini_dict', 'gbk')
