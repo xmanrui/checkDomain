@@ -52,8 +52,10 @@ def check_ai_suffix_domain(eng_dict_path, valid_save_path, invalid_save_path, se
                     print(e)
                     time.sleep(10)
                     continue
-
-            set_last_line_num(section, count)
+            try:
+                set_last_line_num(section, count)
+            except Exception as e:
+                print(e)
 
 if __name__ == '__main__':
     check_ai_suffix_domain(mini_words_path, mini_available_ai_domain, mini_invalid_ai_domain, 'ai_suffix_domain_from_mini_dict', 'gbk')
