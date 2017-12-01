@@ -1,7 +1,7 @@
 import time
 from util import is_available_domain, set_last_line_num, get_last_line_num
 
-words_path = './niujing_eng_words.txt'
+words_path = './Oxford_eng_dict.txt'
 mini_words_path = './mini_eng_dict.txt'
 available_ai_domain = './available_ai_domain.txt'
 mini_available_ai_domain = './mini_available_ai_domain.txt'
