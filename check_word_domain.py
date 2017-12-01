@@ -3,11 +3,12 @@ from util import is_available_domain, set_last_line_num, get_last_line_num
 
 mini_words_path = './mini_eng_dict.txt'
 mini_available_word_domain_path = './mini_available_word_domain.txt'
+Oxford_words_path = './Oxford_eng_dict.txt'
+Oxford_available_word_domain_path = './Oxford_available_word_domain.txt'
 
 
-def check_domain(words_path, save_path, encoding='utf-8'):
+def check_words_domain(words_path, save_path, section, encoding='utf-8'):
     count = 0
-    section = 'mini_word_domain'
     last_line_num = get_last_line_num(section)
 
     with open(words_path, 'r', encoding=encoding) as fh:
@@ -22,7 +23,7 @@ def check_domain(words_path, save_path, encoding='utf-8'):
                             out_fh.writelines(word.strip() + '.com\n')
                             out_fh.flush()
                     else:
-                        print(word.strip() + '.com')
+                        print('invalid: ', word.strip() + '.com')
                     break
                 except Exception as e:
                     print(e)
@@ -68,5 +69,7 @@ def three_character_com_cn_domain():
 
 
 if __name__ == '__main__':
-    # check_domain(mini_words_path, mini_available_word_domain_path, 'gbk')
-    three_character_com_cn_domain()
+    # check_words_domain(mini_words_path, mini_available_word_domain_path, 'mini_word_domain', 'gbk')
+    check_words_domain(Oxford_words_path, Oxford_available_word_domain_path, 'Oxford_word_domain', 'utf-8')
+
+    # three_character_com_cn_domain()
