@@ -35,11 +35,12 @@ def check_words_domain(words_path, save_path, section, encoding='utf-8'):
             # time.sleep(2)
 
 
-def three_character_com_cn_domain():
+def check_2char_3num_com_domain():
     a = 97
     z = 97 + 26
-    words = [chr(i)+chr(j)+chr(k) for i in range(a, z) for j in range(a, z) for k in range(a, z)]
-    last_num = get_last_line_num('three_character_com_cn_domain')
+    words = [chr(i)+chr(j)+str(k) for i in range(a, z) for j in range(a, z) for k in range(0, 1000)]
+    section = '2char_3num_domain'
+    last_num = get_last_line_num(section)
     count = 0
     for word in words:
         count += 1
@@ -49,13 +50,13 @@ def three_character_com_cn_domain():
 
         for i in range(3):
             try:
-                if is_available_domain(word.strip(), '', '', 'com.cn'):
-                    print(word + '.com.cn')
+                if is_available_domain(word.strip(), '', '', 'com'):
+                    print(word + '.com')
                     with open(mini_available_word_domain_path, 'a', encoding='utf-8') as out_fh:
-                        out_fh.writelines(word.strip() + '.com.cn\n')
+                        out_fh.writelines(word.strip() + '.com\n')
                         out_fh.flush()
                 else:
-                    print('invalid: ', word.strip() + '.com.cn')
+                    print('invalid: ', word.strip() + '.com')
                 break
             except Exception as e:
                 print(e)
@@ -63,13 +64,12 @@ def three_character_com_cn_domain():
                 continue
 
         try:
-            set_last_line_num('three_character_com_cn_domain', count)
+            set_last_line_num(section, count)
         except Exception as e:
             print(e)
 
 
 if __name__ == '__main__':
-    # check_words_domain(mini_words_path, mini_available_word_domain_path, 'mini_word_domain', 'gbk')
-    check_words_domain(Oxford_words_path, Oxford_available_word_domain_path, 'Oxford_word_domain', 'utf-8')
+    # check_domain(mini_words_path, mini_available_word_domain_path, 'gbk')
+    check_2char_3num_com_domain()
 
-    # three_character_com_cn_domain()
