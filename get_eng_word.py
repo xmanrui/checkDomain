@@ -4,7 +4,7 @@ import os
 words_directory = './dict'
 output_words_path = './eng_word.txt'
 niujing_words_path = './niujing.txt'
-niujing_eng_words_path = './niujing_eng_words.txt'
+niujing_eng_words_path = './Oxford_eng_dict.txt'
 
 
 def foo():

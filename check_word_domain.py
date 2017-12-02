@@ -28,6 +28,7 @@ def check_words_domain(words_path, save_path, section, encoding='utf-8'):
                     break
                 except Exception as e:
                     print(e)
+                    time.sleep(10)
                     continue
             try:
                 set_last_line_num(section, count)
