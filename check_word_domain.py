@@ -6,6 +6,8 @@ mini_available_word_domain_path = './mini_available_word_domain.txt'
 Oxford_words_path = './Oxford_eng_dict.txt'
 Oxford_available_word_domain_path = './Oxford_available_word_domain.txt'
 available_4char_com_cn_domain_path = './available_4char_com_cn_domain.txt'
+available_4char_cn_domain_path = './available_4char_cn_domain.txt'
+available_4num_com_domain_path = './available_4num_com_domain.txt'
 
 
 def check_words_domain(words_path, save_path, section, encoding='utf-8'):
@@ -35,6 +37,45 @@ def check_words_domain(words_path, save_path, section, encoding='utf-8'):
             except Exception as e:
                 print(e)
             # time.sleep(2)
+
+
+def check_chars_nums_domain(words, saved_path, section, domain_type):
+    """
+    用于检测字母和数字构成的域名
+    :param words:
+    :param saved_path:
+    :param section:
+    :param domain_type:
+    :return:
+    """
+    last_num = get_last_line_num(section)
+    count = 0
+
+    for word in words:
+        count += 1
+
+        if count <= last_num:
+            continue
+
+        for i in range(3):
+            try:
+                if is_available_domain(word.strip(), '', '', domain_type):
+                    print(word + '.' + domain_type)
+                    with open(saved_path, 'a', encoding='utf-8') as out_fh:
+                        out_fh.writelines(word.strip() + '.' + domain_type + '\n')
+                        out_fh.flush()
+                else:
+                    print('invalid: ', word.strip() + '.' + domain_type)
+                break
+            except Exception as e:
+                print(e)
+                time.sleep(10)
+                continue
+
+        try:
+            set_last_line_num(section, count)
+        except Exception as e:
+            print(e)
 
 
 def check_2char_3num_com_domain():
@@ -106,8 +147,28 @@ def check_4char_com_cn_domain():
             print(e)
 
 
+def check_4num_com_domain():
+    words = [str(i) for i in range(0, 10000)]
+    section = '4num_domain'
+    domain_type = 'cn'
+
+    check_chars_nums_domain(words, available_4num_com_domain_path, section, domain_type)
+
+
+def check_4char_cn_domain():
+    a = 97
+    z = 97 + 26
+    words = [chr(i)+chr(j)+chr(k)+chr(l) for i in range(a, z) for j in range(a, z) for k in range(a, z) for l in range(a, z)]
+    section = '4char_cn_domain'
+    domain_type = 'cn'
+
+    check_chars_nums_domain(words, available_4char_cn_domain_path, section, domain_type)
+
+
 if __name__ == '__main__':
     # check_domain(mini_words_path, mini_available_word_domain_path, 'gbk')
     #check_2char_3num_com_domain()
-    check_4char_com_cn_domain()
+    #check_4char_com_cn_domain()
+    check_4num_com_domain()
+    check_4char_cn_domain()
 
