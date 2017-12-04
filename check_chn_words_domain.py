@@ -1,5 +1,5 @@
 import re
-from util import is_available_domain
+from util import is_available_domain, set_last_line_num, get_last_line_num
 import time
 
 
@@ -11,9 +11,17 @@ def check_common_chn_words_domain(domain_type):
     pattern = '([\S]+): ([\S]+)'
     p = re.compile(pattern)
     # r = p.findall('dingzhu: 盯住、叮嘱')
+    section = 'chn_words_domain'
+    last_num = get_last_line_num(section)
+    count = 0
 
     with open(common_chn_words_path, 'r', encoding='utf-8') as fh:
         for line in fh:
+            count += 1
+
+            if count <= last_num:
+                continue
+
             r = p.findall(line)
             if r:
                 word = r[0][0]
@@ -32,7 +40,10 @@ def check_common_chn_words_domain(domain_type):
                         print(e)
                         time.sleep(10)
                         continue
-
+            try:
+                set_last_line_num(section, count)
+            except Exception as e:
+                print(e)
 
 if __name__ == '__main__':
     check_common_chn_words_domain('com')
