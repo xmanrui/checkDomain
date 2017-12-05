@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import configparser
+import time
 
 URL = 'http://www.aaw8.com/Api/DomainApi.aspx?domain='
 HEADERS = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -65,6 +66,46 @@ def get_last_line_num(section):
     cf = configparser.ConfigParser()
     cf.read(CONFIG_PATH)
     return cf.getint(section, 'last_line_num')
+
+
+def check_chars_nums_domain(words, saved_path, section, domain_type):
+    """
+    用于检测字母和数字构成的域名
+    :param words:
+    :param saved_path:
+    :param section:
+    :param domain_type:
+    :return:
+    """
+    last_num = get_last_line_num(section)
+    count = 0
+
+    for word in words:
+        count += 1
+
+        if count <= last_num:
+            continue
+
+        for i in range(3):
+            try:
+                if is_available_domain(word.strip(), '', '', domain_type):
+                    print(word + '.' + domain_type)
+                    with open(saved_path, 'a', encoding='utf-8') as out_fh:
+                        out_fh.writelines(word.strip() + '.' + domain_type + '\n')
+                        out_fh.flush()
+                else:
+                    print('invalid: ', word.strip() + '.' + domain_type)
+                break
+            except Exception as e:
+                print(e)
+                time.sleep(10)
+                continue
+
+        try:
+            set_last_line_num(section, count)
+        except Exception as e:
+            print(e)
+
 
 if __name__ == '__main__':
     t = is_available_domain('xieffdssffdsfsdffmanrui')
