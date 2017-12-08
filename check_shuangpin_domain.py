@@ -21,7 +21,7 @@ def check_pinyin_domain(words, save_path, section, domain_type):
             try:
                 if is_available_domain(word, '', '', domain_type):
                     with open(save_path, 'a', encoding='utf-8') as out_fh:
-                        out_fh.writelines(word + domain_type + '\n')
+                        out_fh.writelines(word + '.' + domain_type + '\n')
                         out_fh.flush()
                 else:
                     print('invalid: ', word + '.' + domain_type)
