@@ -1,0 +1,36 @@
+深圳地铁：szmc.net
+广州地铁：gzmtr
+上海地铁：shmetro
+北京地铁：bjsubway
+东莞地铁：dggdjt
+南宁地铁：nngdjt
+南京地铁：njmetro
+天津：tjgdjt
+石家庄：sjzmetro
+成都：cdmetro
+重庆：cqmetro
+合肥：hfgdjt
+长沙：hncsmtr
+武汉：whrt
+厦门: xmgdjt
+福州：fzmtr
+中山：无 zsgdjt
+珠海：无
+佛山：fmetro.net
+惠州：无
+肇庆：无 zqgdjt
+贵港：
+杭州：hzmetro
+南昌：ncmtr
+贵阳：gyurt
+昆明：gmgdgs
+济南：jnditie
+太原：
+银川：
+西安：xametro
+乌鲁木齐：urumqimtr
+沈阳：symtc
+大连：dlsubway
+青岛：qd-metro
+徐州：xzgdjt
+

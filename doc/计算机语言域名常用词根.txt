@@ -1,0 +1,40 @@
+已注册：
+lab: cpplab javalab csharplab phplab pythonlab pylab
+er: cpper pythoner pyer
+cloud: cppcloud pythoncloud pycloud
+8: cpp8 python8
+ba: cppba pythonba
+hub: cpphub pythonhub
+club: cppclub pythonclub
+dev: cppdev pythondev
+tech: cpptech pythontech kotlintech
+service: cppservice pyservice
+server: pythonserver
+bbs: cppbbs pythonbbs
+i: ikotlin
+my: mykotlin
+home:
+reference：cppreference
+cn: cnpython pythoncn cncpp cppcn
+china: pythonchina
+doc: cppdoc pythondoc
+
+未注册：
+lab: qsharplab
+er: qsharper
+cloud: qsharpcloud
+8: qsharp8
+ba: csharpba qsharpba
+hub: qsharphub csharphub
+club: qsharpclub csharpclub
+dev: qsharpdev
+tech: qsharptech csharptech
+service: qsharpservice csharpservice pythonservice
+server: qsharpserver csharpserver cppserver
+bbs: qsharpbbs csharpbbs
+home:qsharphome
+
+
+PS: 51 52 58 123 365 360 396
+
+

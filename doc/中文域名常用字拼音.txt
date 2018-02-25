@@ -11,8 +11,8 @@ jie
 cun
 men
 le
-bang
-dian
+bang: 帮
+dian: 店
 she
 dao
 dai
@@ -44,4 +44,7 @@ yuan
 yi
 e
 zhi
+chou：筹
+guan：馆
+tai：台
 

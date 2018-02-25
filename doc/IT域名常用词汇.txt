@@ -1,0 +1,45 @@
+常用it域名词根：
+已注册：
+lab: ailab labai gpulab  cpulab dsplab plclab codelab fpgalab iotlab mculab
+cloud: aicloud codecloud gpucloud cpucloud dspcloud facecloud iotlab
+server: aiserver serverai gpuserver cpuserver dspserver plcserver fpgaserver
+service: aiservice serviceai gpuservice cpuservice dspservice plcservice
+hub: github aihub gpuhub cpuhub plchub dsphub fpgahub codehub facehub
+stack: cloudstack openstack facestack techstack
+open: openai opengpu opencpu openplc openfpga opendsp openface opentpu openiot
+tech: patech gputech cputech  nputech dsptech facetech iottech
+git: gitlab、github、gitcloud
+net: cpunet gpunet gpsnet
+studio: tpustudio bdsstudio
+ai:
+club:
+home: armhome mcuhome
+center:
+bbs:
+i: ikotlin
+sys: ocrsys
+tool:
+info:
+zone:
+
+未注册：
+lab: tpulab npulab
+cloud: npucloud cloudnpu
+server: tpuserver npuserver
+service: tpuservice npuservice fpgaservice nlpservice
+hub: tpuhub npuhub
+stack: gpustack cpustack plcstack pfgastack tpustack npustack
+open: opennpu
+tech: tputech
+git: weigit gitwei npu tpu cpu gpu
+ai:
+studio: npustudio gpustudio
+club:
+home:
+center:
+bbs:
+i: ikotlin
+sys:
+tool:
+info:
+zone:
